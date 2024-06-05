@@ -38,17 +38,27 @@
 }
 
 .cellStyle {
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   width: 30px;
   height: 30px;
+  border: solid;
+  border-width: 3px;
+}
 
-  /* border: 2px solid dimgray; */
-  border: 3px outset;
+.normal {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  margin: -3px;
+  background-color: silver;
+  border: outset 3px;
 }
 
 .sampleStyle {
   width: 30px;
   height: 30px;
+  margin: -3px;
   background: url('~/src/assets/images/icons.png');
 }

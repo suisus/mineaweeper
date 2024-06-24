@@ -50,6 +50,14 @@ const Home = () => {
   //   [0, 0, 0, 0, 0, 0, 0, 0, 0],
   // ];
 
+  // let startTime:number|null=null;
+  // let timerInterval:number|null=null;
+
+  // function startGame(){
+  //   startTime=Date.now();
+  //   timerInterval=window.setInterval(updateTimer,1000);
+  // }
+
   const zerocycle = (board: number[][], x: number, y: number) => {
     let bombcount = 0;
     for (const [dy, dx] of directions) {
@@ -61,7 +69,7 @@ const Home = () => {
       }
     }
     board[y][x] = bomMap[y][x] === 1 ? 11 : bombcount;
-    if (board[y][x] === 1) return;
+    if (bomMap[y][x] === 1) return;
     for (const [dy, dx] of directions) {
       const ny = y + dy;
       const nx = x + dx;
@@ -142,10 +150,20 @@ const Home = () => {
   console.log('bomb');
   console.table(bomMap);
 
+  // const gameOver=()=>{
+  //   userInputs[][]=
+  // }
+
   return (
     <div className={styles.container}>
       <div className={styles.boardStyle}>
-        <div className={styles.pointStyle} />
+        <div className={styles.pointStyle}>
+          <div className={styles.totalbombStyle} />
+          <div className={styles.faceStyle}>
+            <div className={styles.sampleStyle} style={{ backgroundPosition: `90px 0px` }} />
+          </div>
+          <div className={styles.timeboardStyle} />
+        </div>
         <div className={styles.gameboardStyle}>
           {board.map((row, y) =>
             row.map((number, x) => (
@@ -158,9 +176,9 @@ const Home = () => {
                 }}
               >
                 {/* <div className={styles.normal}>
-                style={{
-                  number===-1
-                }} */}
+                    style={{
+                      number===-1
+                    }} */}
                 {board[y][x] === -1 && <div className={styles.normal} />}
                 {board[y][x] > 0 && board[y][x] < 12 && (
                   <div
